@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+    <fullyQualifiedTypeName name="java.sql.Array"/>
+    <fullyQualifiedTypeName name="dominio.ArticuloGimnasio"/>
+    <fullyQualifiedTypeName name="dominio.Animal"/>
+    <fullyQualifiedTypeName name="dominio.Perro"/>
+    <fullyQualifiedTypeName name="dominio.Gato"/>
+</qualifiedTypeNameHistroy>

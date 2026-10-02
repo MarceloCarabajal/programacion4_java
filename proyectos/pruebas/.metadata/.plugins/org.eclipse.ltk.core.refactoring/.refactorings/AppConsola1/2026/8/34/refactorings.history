@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Articulo.java&apos; to &apos;AppConsola2/src/dominio&apos;&#x0D;&#x0A;- Original project: &apos;AppConsola1&apos;&#x0D;&#x0A;- Destination element: &apos;AppConsola2/src/dominio&apos;&#x0D;&#x0A;- Original element: &apos;dominio.Articulo.java&apos;" description="Copy compilation unit" destination="=AppConsola2/src&lt;dominio" element1="/src&lt;dominio{Articulo.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1787162381143" units="1" version="1.0"/>
+</session>

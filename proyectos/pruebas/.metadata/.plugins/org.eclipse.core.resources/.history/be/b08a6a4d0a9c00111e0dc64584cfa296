@@ -1,0 +1,16 @@
+package dominio;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		Animal animal = new Animal("Animal");
+		Perro p = new Perro("Zeus", "Caniche");
+		Gato g = new Gato("Nala");
+		
+		System.out.println(animal.toString());
+		System.out.println(p.toString());
+		System.out.println(g.toString());
+	}
+
+}

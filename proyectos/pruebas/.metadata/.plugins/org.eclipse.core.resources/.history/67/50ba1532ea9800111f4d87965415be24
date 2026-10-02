@@ -1,0 +1,9 @@
+package dominio;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		Articulo art = new Articulo();
+		System.out.println("ID: " + art.getId() + " - Nombre: " + art.getNombre());
+	}
+}
