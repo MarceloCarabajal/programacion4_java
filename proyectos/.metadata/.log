@@ -5791,3 +5791,15 @@ java.lang.Exception: Resource '/AppWeb_JSP_1' does not exist.
 	at org.eclipse.wst.jsdt.core.JavaScriptCore.initializeAfterLoad(JavaScriptCore.java:2694)
 	at org.eclipse.wst.jsdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:32)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.wst.server.core 4 0 2026-10-02 18:04:36.760
+!MESSAGE Server Tomcat v11.0 Server at localhost failed to start.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2026-10-02 18:06:27.554
+!MESSAGE Server Tomcat v11.0 Server at localhost failed to start.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2026-10-02 18:19:57.913
+!MESSAGE Server Tomcat v11.0 Server at localhost failed to start.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2026-10-02 18:20:14.117
+!MESSAGE Server Tomcat v11.0 Server at localhost failed to start.
