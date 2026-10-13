@@ -1,12 +1,85 @@
 package dao;
 
 import entidad.Seguro;
+import entidad.TipoSeguro;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SeguroDAO {
-	// listarTodos
+	
+	private static final String SQL_LISTAR =
+			"SELECT s.idSeguro, s.descripcion AS descripcionSeguro, s.costoContratacion, s.costoAsegurado, "
+			+ "t.idTipo, t.descripcion AS descripcionTipo "
+			+ "FROM seguros s INNER JOIN tipoSeguros t ON s.idTipo = t.idTipo";
+
+	public List<Seguro> listarTodos() {
+		List<Seguro> lista = new ArrayList<>();
+		Connection conexion = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			conexion = Conexion.obtenerConexion();
+			// DATO : Se pueden concatenar consultas
+			// DATO :Se pueden concatenar consultas
+			ps = conexion.prepareStatement(SQL_LISTAR + " ORDER BY s.idSeguro");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				lista.add(armarSeguro(rs));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Conexion.cerrarConexion(conexion, ps, rs);
+		}
+
+		return lista;
+	}
+
+	public List<Seguro> listarPorTipo(int idTipo) {
+		List<Seguro> lista = new ArrayList<>();
+		Connection conexion = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			conexion = Conexion.obtenerConexion();
+			ps = conexion.prepareStatement(SQL_LISTAR + " WHERE s.idTipo = ? ORDER BY s.idSeguro");
+			ps.setInt(1, idTipo);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				lista.add(armarSeguro(rs));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Conexion.cerrarConexion(conexion, ps, rs);
+		}
+
+		return lista;
+	}
+
+	// Convierte la fila actual del ResultSet en un objeto Seguro con su TipoSeguro adentro.
+	private Seguro armarSeguro(ResultSet rs) throws SQLException {
+		TipoSeguro tipo = new TipoSeguro();
+		tipo.setIdTipo(rs.getInt("idTipo"));
+		tipo.setDescripcion(rs.getString("descripcionTipo"));
+
+		Seguro seguro = new Seguro();
+		seguro.setIdSeguro(rs.getInt("idSeguro"));
+		seguro.setDescripcion(rs.getString("descripcionSeguro"));
+		seguro.setTipoSeguro(tipo);
+		seguro.setCostoContratacion(rs.getDouble("costoContratacion"));
+		seguro.setCostoAsegurado(rs.getDouble("costoAsegurado"));
+		return seguro;
+	}
 
 	public int obtenerProximoId() {
 		int proximoId = 1;

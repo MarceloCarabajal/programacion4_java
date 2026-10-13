@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TipoSeguroDAO {
-	public List obtenerTiposSeguro() {
-		List lista = new ArrayList<>();
+	public List<TipoSeguro> obtenerTiposSeguro() {
+		List<TipoSeguro> lista = new ArrayList<>();
         Connection conexion = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idTipo, descripcion FROM tipos_seguros";
+        String sql = "SELECT idTipo, descripcion FROM tipoSeguros ORDER BY idTipo";
 
         try {
             conexion = Conexion.obtenerConexion();
