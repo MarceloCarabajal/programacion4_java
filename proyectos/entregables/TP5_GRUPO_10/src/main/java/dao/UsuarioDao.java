@@ -6,8 +6,10 @@ import java.sql.ResultSet;
 
 import entidades.Usuario;
 
-public class UsuarioDao {
+public class UsuarioDao implements IUsuarioDao{
 
+	
+	
 	public Usuario buscarPorCredenciales(String usuario, String contrasena) {
 		Usuario encontrado = null;
 		Connection conexion = null;
@@ -36,5 +38,40 @@ public class UsuarioDao {
 		}
 
 		return encontrado;
+	}
+
+	@Override
+	public Usuario obtenerUsuario(String nombreUsuario, String pass) {
+		Usuario user = null;
+		String query = "select id_usuario, usuario, contrasena from usuarios where usuario = ? and contrasena = ?";
+		
+		Connection cn = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		
+		try {
+			cn = Conexion.obtenerConexion();
+			pst = cn.prepareStatement(query);
+			
+			pst.setString(1, nombreUsuario);
+			pst.setString(2, pass);
+			
+			try {
+				rs = pst.executeQuery();
+				
+				if (rs.next()) {
+					user = new Usuario();
+					user.setIdUsuario(rs.getInt("id_usuario"));
+					user.setUsuario(rs.getString("usuario"));
+					user.setContrasena(rs.getString("contrasena"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return user;
 	}
 }
