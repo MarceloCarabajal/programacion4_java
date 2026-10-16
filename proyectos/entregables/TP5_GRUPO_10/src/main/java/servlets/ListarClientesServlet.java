@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import negocio.ClienteNegocio;
+
 /**
  * Servlet implementation class ListarClientesServlet
  */
@@ -25,9 +27,12 @@ public class ListarClientesServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	// Carga el listado y lo deja en el request.
+	// Falta ListarClientes.jsp con la tabla paginada (DataTables) y el usuario logueado.
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ClienteNegocio clienteNegocio = new ClienteNegocio();
+		request.setAttribute("listaClientes", clienteNegocio.obtenerTodos());
+		request.getRequestDispatcher("ListarClientes.jsp").forward(request, response);
 	}
 
 	/**
