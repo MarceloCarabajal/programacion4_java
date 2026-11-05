@@ -85,4 +85,35 @@ public class ClienteDao implements IClienteDao {
 
         return insertado;
     }
+
+    public boolean existeDni(String dni) {
+        return existe("dni", dni);
+    }
+
+    public boolean existeCuil(String cuil) {
+        return existe("cuil", cuil);
+    }
+
+    private boolean existe(String columna, String valor) {
+        Connection conexion = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean existe = false;
+
+        String sql = "SELECT 1 FROM clientes WHERE " + columna + " = ?";
+
+        try {
+            conexion = Conexion.obtenerConexion();
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, valor);
+            rs = ps.executeQuery();
+            existe = rs.next();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            Conexion.cerrarConexion(conexion, ps, rs);
+        }
+
+        return existe;
+    } 
 }

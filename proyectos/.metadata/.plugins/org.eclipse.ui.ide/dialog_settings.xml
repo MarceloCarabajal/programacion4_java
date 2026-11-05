@@ -87,6 +87,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\utils\Education\utn\tup\segundo_anio\segundo_cuatrimestre\programacion_4\proyectos\entregables\TP5_GRUPO_10"/>
 			<item value="C:\utils\Education\utn\tup\segundo_anio\segundo_cuatrimestre\programacion_4\proyectos\entregables\TP4_GRUPO_10"/>
 			<item value="C:\utils\Education\utn\tup\segundo_anio\segundo_cuatrimestre\programacion_4\proyectos\pruebas\u4-aplicaciones-web\AppWeb_JSP_1"/>
 		</list>

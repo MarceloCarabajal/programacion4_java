@@ -48,8 +48,8 @@ public class LoginServlet extends HttpServlet {
         if (u != null) {
             HttpSession session = request.getSession();
             session.setAttribute("usuarioLogueado", u.getUsuario());
-            // PENDIENTE DE IMPLEMENTAR
-            //response.sendRedirect("AltaCliente.jsp");
+            request.changeSessionId();
+            response.sendRedirect("AltaCliente.jsp");
         } else {
             request.setAttribute("error", "Usuario o contraseña incorrectos.");
             request.getRequestDispatcher("Login.jsp").forward(request, response);

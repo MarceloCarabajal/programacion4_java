@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    tools:context=".MainActivity">
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="16sp" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo Electronico"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="16sp" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de nacimiento"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etFechaNacimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:textSize="16sp" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Intereses"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/chkDeporte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Deporte" />
+
+            <CheckBox
+                android:id="@+id/chkMusica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Musica" />
+
+            <CheckBox
+                android:id="@+id/chkVideojuegos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Videojuegos" />
+        </LinearLayout>
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sexo"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <RadioButton
+                android:id="@+id/rbMasculino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Masculino" />
+            <RadioButton
+                android:id="@+id/rbFemenino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Femenino" />
+            <RadioButton
+                android:id="@+id/rbOtro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Otro" />
+        </RadioGroup>
+
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desea recibir información"
+            android:textSize="16sp" />
+
+        <Switch
+            android:layout_marginLeft="50dp"
+            android:id="@+id/switchSiNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="SI" />
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="btnEvent"
+            android:text="Aceptar" />
+    </TableRow>
+</TableLayout>

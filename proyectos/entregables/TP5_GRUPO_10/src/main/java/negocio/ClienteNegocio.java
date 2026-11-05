@@ -14,4 +14,12 @@ public class ClienteNegocio {
     public List<Cliente> obtenerTodos() {
         return clienteDao.obtenerTodos();
     }
+
+    public boolean existeDni(String dni) {
+        return clienteDao.existeDni(dni);
+    }
+
+    public boolean existeCuil(String cuil) {
+        return clienteDao.existeCuil(cuil);
+    }
 }
