@@ -114,30 +114,34 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sexo"
+            android:text="Genero"
             android:textSize="16sp" />
 
         <RadioGroup
+            android:id="@+id/rgGenero"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
+
             <RadioButton
                 android:id="@+id/rbMasculino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Masculino" />
+                android:text="Masculino"
+                android:textSize="16sp" />
+
             <RadioButton
                 android:id="@+id/rbFemenino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Femenino" />
+                android:text="Femenino"
+                android:textSize="16sp" />
+
             <RadioButton
                 android:id="@+id/rbOtro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Otro" />
+                android:text="Otro"
+                android:textSize="16sp" />
         </RadioGroup>
 
 
@@ -177,5 +181,17 @@
             android:gravity="center"
             android:onClick="btnEvent"
             android:text="Aceptar" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_span="2"
+            android:text="Resultado: "
+            android:id="@+id/tvResultado"
+            android:textSize="16sp" />
+
     </TableRow>
 </TableLayout>

@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox chkDeporte;
     private CheckBox chkMusica;
     private CheckBox chkVideojuegos;
+    private RadioGroup radioGroup;
+    private TextView txtResultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +51,45 @@ public class MainActivity extends AppCompatActivity {
         etCorreo = findViewById(R.id.etCorreo);
         etFechaNac = findViewById(R.id.etFechaNacimiento);
 
-        chkDeporte = 
+        chkDeporte = findViewById(R.id.chkDeporte);
+        chkMusica = findViewById(R.id.chkMusica);
+        chkVideojuegos = findViewById(R.id.chkVideojuegos);
+
+        radioGroup = findViewById(R.id.rgGenero);
+
+        txtResultado = findViewById(R.id.tvResultado);
     }
 
     public void btnEvent(View view) {
         String nombre = etNombre.getText().toString();
         String correo = etCorreo.getText().toString();
         String fechaNac = etFechaNac.getText().toString();
+        String elementosChequeados = "";
+
+        elementosChequeados += "Resultado: " + "\n";
+        elementosChequeados += "Nombre: " + nombre + "\n";
+        elementosChequeados += "Correo: " + correo + "\n";
+        elementosChequeados += "Fecha de nacimiento: " + fechaNac + "\n";
+        elementosChequeados += "Intereses: " + "\n";
+
+        if(chkDeporte.isChecked()){
+            elementosChequeados += chkDeporte.getText().toString() + "\n";
+        }
+        if(chkMusica.isChecked()){
+            elementosChequeados += chkMusica.getText().toString() + "\n";
+        }
+        if(chkVideojuegos.isChecked()){
+            elementosChequeados += chkVideojuegos.getText().toString() + "\n";
+        }
+        if(switchSiNo.isChecked()){
+            elementosChequeados += "Desea recibir información: " + switchSiNo.getText().toString() + "\n";
+        }
+
+        int idSeleccionado = radioGroup.getCheckedRadioButtonId();
+        if(idSeleccionado != -1){
+            RadioButton rbSeleccionado = findViewById(idSeleccionado);
+            elementosChequeados += "Género: " + rbSeleccionado.getText().toString() + "\n";
+        }
+        txtResultado.setText(elementosChequeados);
     }
 }

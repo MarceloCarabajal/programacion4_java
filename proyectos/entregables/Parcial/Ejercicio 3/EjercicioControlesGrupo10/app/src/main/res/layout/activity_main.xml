@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- La raíz ahora es un LinearLayout: arriba la Toolbar (fija, donde vive el menú)
+     y abajo el ScrollView, que ocupa el resto de la pantalla. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- El tema es NoActionBar, así que la barra superior hay que ponerla a mano.
+         Sin esto, el menú de navegación no aparece en pantalla. -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimaryContainer"
+        app:title="Agregar contacto" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FORMULARIO DE CONTACTO"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Este es un formulario destinado al registro de personas, sus datos personales e intereses."
+                android:layout_marginBottom="16dp"/>
+
+            <!-- NOMBRE -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="NOMBRE" android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre"
+                android:maxLength="40"
+                android:inputType="textPersonName|textCapWords"/>
+
+            <!-- APELLIDO -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="APELLIDO" android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/etApellido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Apellido"
+                android:maxLength="40"
+                android:inputType="textPersonName|textCapWords"/>
+
+            <!-- TELÉFONO Y SPINNER -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="TELÉFONO" android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <!-- android:digits bloquea desde el teclado todo lo que no sea número o guion
+                     (el teclado "phone" también ofrece + * # ( ) que no queremos). -->
+                <EditText
+                    android:id="@+id/etTelefono"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Ej: 11-4567-8901"
+                    android:digits="0123456789-"
+                    android:maxLength="20"
+                    android:inputType="phone"/>
+                <Spinner
+                    android:id="@+id/spinnerTelefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"/>
+            </LinearLayout>
+
+            <!-- EMAIL Y SPINNER -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="EMAIL" android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"/>
+                <Spinner
+                    android:id="@+id/spinnerEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"/>
+            </LinearLayout>
+
+            <!-- DIRECCIÓN -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="DIRECCIÓN" android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/etDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Direccion"
+                android:maxLength="80"
+                android:inputType="textPostalAddress"/>
+
+            <!-- FECHA DE NACIMIENTO -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="FECHA DE NACIMIENTO" android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/etFechaNac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tocar para elegir la fecha"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none"/>
+
+            <!-- BOTÓN CONTINUAR -->
+            <Button
+                android:id="@+id/btnContinuar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CONTINUAR"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
